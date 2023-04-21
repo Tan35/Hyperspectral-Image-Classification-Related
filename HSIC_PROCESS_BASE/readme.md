@@ -24,3 +24,10 @@ Of course, with slight modifications to the code, other datasets can also be sup
 I recommend running the `.pynb` format file directly. Additionally, the code provides an option to save the image or not.
 
 See u 👾
+
+![IP_Spectral_Signature_20230421-155407](https://user-images.githubusercontent.com/45460542/233584948-b19fd9a0-ae07-41c8-b090-4c2b6b067f3e.png)
+![PC_Spectral_Signature_20230421-155456](https://user-images.githubusercontent.com/45460542/233584991-3bc5fdbc-480f-4783-a9d9-cbff3b462aa3.png)
+![PU_Spectral_Signature_20230421-155424](https://user-images.githubusercontent.com/45460542/233585021-1426eed2-e19f-4888-8486-2a32407a24b7.png)
+![SA_Spectral_Signature_20230421-155440](https://user-images.githubusercontent.com/45460542/233585047-97500343-e33d-4be0-a219-06cc64bf729d.png)
+![KSC_Spectral_Signature_20230421-155508](https://user-images.githubusercontent.com/45460542/233585082-7f167e2a-9fcc-4cd6-87a6-2d658216a805.png)
+
