@@ -1,0 +1,282 @@
+<!DOCTYPE html><head><meta charset="utf-8"><title>翻译结果</title><style>
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+}
+
+.table-header {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.table-row {
+  border-bottom: 1px solid lightgray;
+}
+
+.table-cell {
+  padding: 5px;
+}
+        </style></head>
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>论文概况</p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><h3>标题</h3>
+<p>Trajectory Planning and Tracking for Autonomous Vehicle Based on State Lattice and Model Predictive Control</p>
+<h3>收录会议或期刊</h3>
+<p>IEEE IntEllIgEnt transportatIon systEms magazInE</p>
+<h3>作者</h3>
+<p>Chaoyong Zhang, Duanfeng Chu, Shidong Liu, Zejian Deng, Chaozhong Wu</p>
+<h3>摘要</h3>
+<p>Abstract—Trajectory planning and tracking control are two keys of collision avoidance for autonomous vehicles in critical traffic scenarios. It requires not only the system functionality, but also strong real-time. In this paper, we integrated trajectory planner and tracking controller for autonomous vehicle to implement trace planning and tracking for obstacle avoidance. The trajectory planner is based on the state lattice approach and the tracking controller is designed based on the model predictive control using the vehicle kinematics model. The simulation shows that the planner can generate smooth trajectories which could be selected as references for the controller. The maximum tracking error is less than 0.</p>
+<h3>编号</h3>
+<p>XXXXXX</p>
+<h3>作者邮箱</h3>
+<p>Correspondence: chudf@whut.edu.cn
+E-mail: xiaocongs@kotei.com.cn</p>
+<h3>中文翻译摘要</h3>
+<p>摘要：路径规划和追踪控制是自主车辆在关键交通场景中避免碰撞的两个关键问题。这不仅需要系统功能，还需要强大的实时性。本文结合了自主车辆的路径规划器和追踪控制器，以实现避障的轨迹规划和追踪。路径规划器基于状态格方法，追踪控制器则基于使用车辆运动学模型的模型预测控制。仿真结果表明，规划器能够生成平滑轨迹，可作为控制器的参考。最大追踪误差小于0。</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>二、论文翻译</p></div></div>
+    <div class="column table-cell"><div class="markdown-body"></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination.</p>
+<p>Trajectory Planning and  Tracking for Autonomous  Vehicle Based on State  Lattice and Model  Predictive Control</p>
+<p>Chaoyong Zhang, Duanfeng Chu, Shidong Liu, Zejian Deng, and Chaozhong Wu Intelligent Transportation Systems Research Center, Wuhan University of Technology. Correspondence: chudf@whut.edu.cn.</p>
+<p>Xiaocong Su Wuhan Kotei Technology Corporation. E-mail: xiaocongs@kotei.com.cn </p>
+<p>Abstract—Trajectory planning and tracking control are two keys of collision avoidance for autonomous  vehicles in critical traffic scenarios. It requires not only the system functionality, but also strong real-time.  In this paper, we integrated trajectory planner and tracking controller for autonomous vehicle to imple ment trace planning and tracking for obstacle avoidance. The trajectory planner is based on the state  lattice approach and the tracking controller is designed based on the model predictive control using the  vehicle kinematics model. The simulation shows that the planner can generate smooth trajectories which  could be selected as references for the controller. The maximum tracking error is less than 0.2 m when the  vehicle speed is below 50 km/h. Additionally, the on field test shows that the test vehicle with this method  is capable of following the reference path accurately, even at sharp corners.</p>
+<p>W </p>
+<p>ith the rapid development of sensor and  control technologies, advanced driver as sistance systems (ADAS) become more and  more powerful [1], [2]. Further, the highly  autonomous vehicle technology, i.e.,SAE L4, and L5  attracts more attention from the academia and indus try for improving the driving safety, efficiency and comfort.</p>
+<p>However, the deficiency of the technology leads  to the half-baked automated vehicle. There are still  various challenges in achieving the fully autono mous vehicle for the masses of the public. As is well  known, the key technologies of automated driving include  environment perception, decision-making, trajectory  planning, motion control, car networking, human-vehicle-interaction, etc. [3].</p>
+<p>Among these key technologies, the vehicle’s trajectory  planning and motion control are two of the most signifi cant ones. The trajectory planner generates viable trajecto ry based on the road environment in time, then the motion  controller tracks the reference accurately. Depending on  the complexity of the trajectory planner, these two mod ules can be considered as a combined block or independent  from each other [4]. As the core module, both of them play  an important role in driving safety and comfort. Vehicle driving is a complex non-linear system consid ering multiple constraints. In order to simulate the real  driving process, the literature has built a large amount  of driver models. The main methods include various im proved PID control, robust control, model predictive con-trol (MPC), etc.</p>
+<p>There are a large amount of literature, which shows the  success in the vehicle longitudinal control by using PID  control. Adaptive Cruise Control (ACC) [5] and Lane Keep ing Control (LKC) can achieve good performance using PID  controllers [6], [7]. However, the vehicle lateral control is a  comparative complex problem, which needs more robust ness to ensure safety and comfort. The parameters of PID  controller are very difficult to determine because handling  systems with complex nonlinearities that requires high ac curacy [8]. Over the state of the art in autonomous driving  technology, the method of MPC has been shown as a prom ising method to achieve good control performance [9]. The MPC method utilizes the vehicle model to predict  the vehicle’s future motion states by combining current  sampled states and target states generated by the path  planner. In each period, the MPC controller generates a  control action sequence by minimizing the objective func tion considering the control constraints. The first control  action of the sequence is the input variable for the vehicle  low-level controller. As time goes by, the vehicle’s cur rent motion states and the target states are both changing.  Hence, the next action of the sequence are not the most  satisfying for the optimization requirements. So the same  progress will be repeated at subsequent time steps. These  iteration steps will eventually lead to the smallest error and the best performance.</p>
+<p>The basic function of the MPC controller is to track the  expected states to make the vehicle reach the destination  with guaranteeing safety and comfort [10]. It is better to  improve the energy efficiency at the same time [11]. An  autonomous vehicle based on MPC with the function of  obstacle avoidance was presented [12]. Further, it can be  equipped with other advanced functions, i.e., the planning  and control strategies both reflect the driver behavior. In  other words, different trajectories and control strategies  can be customized for different drivers in autonomous  vehicles. A MPC controller was presented to reflect differ ent characteristics of the driver [8]. The MPC-based driver  model could reflect different drivers’ skills through con sidering the stochastic characteristics of drivers’ steering features [13].</p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>本文已被接收用于该期刊的未来发表。内容如呈现的那样最终确定，与分页除外。</p>
+<p>自主车辆的轨迹规划和跟踪控制是在关键交通场景中避免碰撞的两个关键点。这不仅需要系统的功能性，还需要强大的实时性。本文中，我们整合了自主车辆的轨迹规划和跟踪控制器，以实现躲避障碍物的轨迹规划和跟踪。轨迹规划器基于状态格点法，跟踪控制器基于使用车辆运动学模型的模型预测控制设计。仿真结果表明，规划器可以生成平滑的轨迹，可以作为控制器的参考轨迹。当车速低于50 km/h时，最大的跟踪误差小于0.2米。此外，现场测试表明，使用该方法的测试车辆能够准确地跟随参考路径，即使在急转弯处也能如此。</p>
+<p>随着传感器和控制技术的快速发展，高级驾驶辅助系统(ADAS)变得越来越强大。更进一步，高度自主驾驶技术，即SAE L4和L5技术，吸引了学术界和工业界的更多关注，以提高驾驶安全性、效率和舒适性。</p>
+<p>然而，技术的不足使得自动驾驶车辆仍然处于半成品状态。在实现大众化完全自动驾驶车辆方面仍存在各种挑战。众所周知，自动驾驶的关键技术包括环境感知、决策制定、轨迹规划、运动控制、车联网、人车交互等。</p>
+<p>在这些关键技术中，车辆的轨迹规划和运动控制是其中最重要的两个。轨迹规划器根据道路环境及时生成可行的轨迹，然后运动控制器准确跟踪参考轨迹。根据轨迹规划器的复杂性，这两个模块可以被视为一个组合块或相互独立。作为核心模块，它们都在驾驶安全和舒适性方面发挥着重要作用。车辆驾驶是一个考虑多个约束的复杂非线性系统。为了模拟实际驾驶过程，已经建立了大量的驾驶员模型。主要方法包括各种改进的PID控制、鲁棒控制、模型预测控制(MPC)等。</p>
+<p>关于车辆纵向控制的大量文献显示，使用PID控制可以实现良好的性能。自适应巡航控制(ACC)和车道保持控制(LKC)可以使用PID控制器实现良好的性能。然而，车辆横向控制是一个相对复杂的问题，需要更强的鲁棒性以确保安全和舒适性。PID控制器的参数很难确定，因为处理具有复杂非线性的系统需要高精度。在自动驾驶技术的最新技术水平中，MPC方法已被证明是实现良好控制性能的一种有前途的方法。MPC方法利用车辆模型，通过结合当前采样状态和路径规划器生成的目标状态来预测车辆的未来运动状态。在每个时期，MPC控制器通过最小化考虑控制约束的目标函数生成一个控制动作序列。序列的第一个控制动作是车辆低级控制器的输入变量。随着时间的推移，车辆的当前运动状态和目标状态都在变化。因此，序列的下一个动作对于优化要求来说不是最令人满意的。因此，相同的进展将在随后的时间步骤中重复进行。这些迭代步骤最终将导致最小的误差和最佳性能。</p>
+<p>MPC控制器的基本功能是跟踪期望的状态，以使车辆在保证安全和舒适的同时达到目的地。同时，最好提高能源效率。还提出了一种基于MPC的具备避障功能的自主车辆。此外，它还可以配备其他先进功能，例如规划和控制策略都反映驾驶员行为。换句话说，在自主车辆中可以为不同的驾驶员定制不同的轨迹和控制策略。提出了一种基于MPC的驾驶员模型，可以通过考虑驾驶员转向特征的随机特性来反映不同驾驶员的技能。</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>In the literature about the controller of the autonomous  vehicle, there is a common assumption that the reference  path tracked is known prior and completely which can be  considered as a global path [14], [15]. However, the reference  path without optimization is rough and makes the vehicle  movement bumpy. Although there are several methods for  finding optimized smooth path from the origin to the des tination [16], [17]. However, the driver cannot predict the  next moment trace unless the vehicle completely track the  reference path. For example, if an obstacle is on the refer ence path, in order to avoid the obstacle, the vehicle cannot  completely track the reference path. At the meantime, the  driver does not predict the starting time and the direction  that the vehicle moves around the obstacle. These uncon trollable factors may lead to driver’s anxiety and potential  unsafe issues. Besides, the traffic flow is also dynamic and  the surroundings are changing all the time. Therefore, it is  necessary to plan and optimize the reference trajectory in  real time during the vehicle’s movement [18], [19]. The purpose of trajectory planning is to generate a  trajectory between current and desired points that is as  smooth as possible to avoid obstructions [20]. Path plan ning and trajectory planning already had a great deal of  successful experience in the field of mobile robots and un-manned aerial vehicle [17], [21].</p>
+<p>In the process of autonomous vehicle driving, the ba sic idea is to drive through a series of discrete points be tween the start and the end. Each point represents a grid  area. These grids can construct a complete driving scene.  The vehicle eventually reaches the goal point by passing  through the series of adjacent grids, which are obtained by the heuristic search algorithm.</p>
+<p>Dijkstra algorithm [22] and its extension, i.e., A-star algo rithm (A<em>) are the most common path searching algorithms.  In 2007’ DARPA Urban Challenge (DUC), many teams used  the A</em> algorithm to implement automated driving [23], [24].  Except for simplicity, another advantage of the algorithm is  the strong expandability. The winner of DUC also used the  improved algorithm based on the A<em> algorithm [25]. The first step in using the A</em> algorithm is to construct  the environment map with many uniform grids. For the  straight lanes, low-density or low speed, the A* algorithm  and its improved algorithm are feasible. However, when  it comes to complex curved road, the uniform grid can not satisfy the demand. To deal with large environment,  it needs vast memory usage to construct the map. Besides,  for the real automated vehicle, it is hard to devise a cost  function to reflect the energy efficiency, comfort, vehicle physics constraints, etc.</p>
+<p>The state lattice algorithm is an improved graph search  algorithm that can solve these problems. The algorithm  uses a hyper-dimensional grid of states to represent the  planning area [26]. The major advantage of the state lat tice algorithm is that multiple target endpoints could be  selected as end points. In this way, it generates multiple  reference trajectories and then choose the best one accord ing to the established cost function. In [27], by choosing the  best trajectory from the multiple reference paths, it made  autonomous vehicle driving performs more superior. The cost function could be divided into static cost and  dynamic cost [28]. The static cost was related to obstacle  and the motion state of the vehicle, while the dynamic cost  considered the velocity and acceleration. Literature point ed out that the future driving progress should completely  independent to the past state, so the driving process could  be seen as Markov process, which could be dealt with the  Belleman’s Principle to find the optimal actions [29]. The trajectory generation of the state lattice algorithm  uses curvature polynomials with parameters to get the  trajectory between two state points, so that the vehicle  movement can be carried out with the constraints about  the kinematic and road shape. In [30], it proposed that cur vature polynomials could be arbitrary order. Using quintic  polynomials could lead to a more smooth vehicle motion at  high speed by comparing the cubic polynomials and quin-tic polynomials [28].</p>
+<p>However, the trajectory generation method could only  be applied in highway scenes [31]. Besides, in the field of  trajectory planning, it is generally assumed that the track ing controller is perfect enough to track any trajectory [29].  Meanwhile in the trace tracking control area, the refer ence path is always a global path, which is not a real-time  trajectory. The purpose of this paper is to combine the in dividual parts and consider the performance as a whole. Based on these circumstances, this paper establishes a  framework of integrating local trajectory planner and track ing controller for autonomous vehicle. According to the road  information, the trajectory planner based on state lattice  generates reference trajectory in real time for the tracking  controller based on model predictive control. The tracking  controller uses the reference trajectory for feedback control.  The trace tracking error and computational efficiency are  both better than the previous studies [10]. The trajectory  planner is optimized to be used on medium speed and low  speed urban roads in addition to applications on highways. The rest of the paper is organized as follows: in Sec tion II, the method of trajectory planning and the trace tracking algorithm are both derived in detail. Section III  presents the simulation and the on-field test for unmanned  ground vehicle. It is followed by result summarizations and the future improvements.</p>
+<p>1) Vehicle Model </p>
+<p>On urban roads, the non-holonomic vehicle kinematic  model can be adopted to achieve the autonomous motion effectively [32].</p>
+<p>The vehicle kinematics model is given by [33]  </p>
+<p>= </p>
+<p>represents the controlled variables which are the outputs  of the MPC controller. Vector x y T</p>
+<p>6 </p>
+<p>@  represents the coordi nate whose origin located at the center of the vehicle’s rear  shaft; { is the vehicle heading angle; v is the longitudinal  speed; d is the front wheel steering angle; and l is the axle distance of the vehicle.</p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>在有关自动驾驶车辆控制器的文献中，有一个普遍的假设：被跟踪的参考路径事先已知且完整，可以被视为全局路径[14]，[15]。然而，没有进行优化的参考路径粗糙，导致车辆运动不平稳。虽然有几种方法可以从起点到终点找到优化的平滑路径[16]，[17]。然而，除非车辆完全跟踪参考路径，否则驾驶员无法预测下一个时刻的轨迹。例如，如果障碍物位于参考路径上，为了避开障碍物，车辆无法完全跟踪参考路径。同时，驾驶员无法预测车辆绕过障碍物的起始时间和方向。这些无法控制的因素可能导致驾驶员焦虑和潜在的不安全问题。此外，交通流量也是动态的，周围环境不断变化。因此，在车辆运动过程中实时规划和优化参考轨迹是必要的[18]，[19]。轨迹规划的目的是生成当前点和目标点之间尽可能平滑的轨迹，以避开障碍物[20]。路径规划和轨迹规划在移动机器人和无人机领域已经积累了大量成功经验[17]，[21]。</p>
+<p>在自动驾驶车辆行驶过程中，基本思想是通过一系列离散点之间行驶，这些点表示网格区域。这些网格可以构建完整的驾驶场景。车辆通过连续的相邻网格最终到达目标点，这些网格是通过启发式搜索算法获得的。</p>
+<p>迪杰斯特拉算法[22]及其扩展，即A<em>算法，是最常用的路径搜索算法。在2007年的DARPA城市挑战(DUC)中，许多团队使用A</em>算法实现自动驾驶[23]，[24]。除了简单性，该算法的另一个优点是强大的可扩展性。DUC的获胜者还使用了基于A<em>算法改进的算法[25]。使用A</em>算法的第一步是构建具有许多均匀网格的环境地图。对于直线道路、低密度或低速道路，A*算法及其改进的算法是可行的。然而，对于复杂的弯道道路来说，均匀网格无法满足需求。处理大型环境时，需要大量内存来构建地图。此外，对于真实的自动驾驶车辆，很难设计一个能反映能源效率、舒适度、车辆物理约束等因素的成本函数。</p>
+<p>状态规划算法是一种改进的图搜索算法，可以解决这些问题。该算法使用超维状态网格来表示规划区域[26]。状态规划算法的主要优点是可以选择多个目标终点作为终点。通过这种方式，它生成多条参考轨迹，然后根据建立的成本函数选择最佳轨迹[27]。成本函数可以分为静态成本和动态成本[28]。静态成本与障碍物和车辆的运动状态有关，而动态成本考虑速度和加速度。文献指出，未来驾驶进展应完全独立于过去的状态，因此驾驶过程可以视为马尔可夫过程，可以用贝尔曼原理来找到最优动作[29]。状态规划算法的轨迹生成使用曲率多项式和参数来获取两个状态点之间的轨迹，以便在动力学和道路形状的约束下进行车辆运动。在[30]中，它提出了曲率多项式可以是任意阶的。通过比较三次多项式和五次多项式，使用五次多项式可以在高速时导致更平滑的车辆运动[28]。</p>
+<p>然而，轨迹生成方法只适用于高速公路场景[31]。此外，在轨迹规划领域，通常假设跟踪控制器足够完美，能够跟踪任何轨迹[29]。与此同时，在追踪控制区域中，参考路径始终是全局路径，而不是实时轨迹。本文的目的是将各个部分整合起来，将性能作为一个整体考虑。根据道路信息，基于状态规划的轨迹规划器实时为基于模型预测控制的追踪控制器生成参考轨迹。追踪控制器使用参考轨迹进行反馈控制。追踪误差和计算效率都优于之前的研究[10]。轨迹规划器经过优化，除了适用于高速公路上，也适用于中低速城市道路。本文的其余内容组织如下：第二部分详细介绍轨迹规划和追踪算法的方法。第三部分介绍无人地面车辆的仿真和实地测试。随后是结果总结和未来的改进。</p>
+<h1>1) 车辆模型</h1>
+<p>在城市道路上，可以采用非完整车辆运动学模型来有效实现自主行驶[32]。</p>
+<p>车辆运动学模型由以下公式给出[33]：</p>
+<h1>=</h1>
+<p>表示输出变量，是MPC控制器的输出。向量x y T</p>
+<h1>6</h1>
+<p>@ 代表坐标系，其原点位于车辆后轴的中心处；代表车辆偏航角；v代表纵向速度；d代表前轮转角；l代表车辆的轴距。</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>In order to obtain the vehicle system control outputs, it  needs feedback compensation by comparing the sampled  vehicle state with the state of a reference vehicle, which  is assumed to be driving on the reference path. The tra jectory planner plans the reference vehicle state. It can be  defined as the following form  </p>
+<p>= o </p>
+<p>(2) Calculating the error of the sampled vehicle state through  the Taylor series around the reference point (</p>
+<p>H </p>
+<p>Where T is the sampling period, t is the discrete time in-dex, k means the step ahead from t.</p>
+<p>2) MPC Controller </p>
+<p>Generally, the MPC controller selects the system output  variable by optimizing an objective function with con straints. Its solution can make the vehicle move safely and  fast by minimizing the objective function. The most com mon objective function is defined as a quadratic function of the states and control inputs like [34].</p>
+<p>2 </p>
+<p>Q and R are weighting ma trices. For each parameters, the corresponding coefficients  in the weighting matrices may be different. It is of signifi cant importance to adjust them to obtain desired control  performance with minimum error or parallel to the route. In reality, the vehicle speed control is implemented by  operating the throttle and the brake, as well as the steering  wheel for tracking its driving direction. Both of them do not  use </p>
+<p>= u 6 @ </p>
+<p>Referring to [35], the modified objective function of  Equation(4) should be changed accordingly:  </p>
+<p>/ / </p>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="n">Where</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">slack</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">objective</span><span class="w"> </span><span class="n">function</span><span class="p">,</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">ence</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">reflects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">driving</span><span class="w"> </span><span class="n">safety</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">term</span><span class="w">  </span><span class="n">emphasizes</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="n">smoothness</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">reflects</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">driving</span><span class="w"> </span><span class="n">comfort</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">endowed</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">physi</span><span class="w"> </span><span class="n">cal</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">reality</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="w"> </span><span class="n">solution</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">optimization</span><span class="w"> </span><span class="p">[</span><span class="mi">36</span><span class="p">]</span><span class="o">.</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">cases</span><span class="p">,</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">constrained</span><span class="w">  </span><span class="n">MPC</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="n">lead</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">feasible</span><span class="w"> </span><span class="n">actions</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">computed</span><span class="o">.</span><span class="w">  </span><span class="n">By</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">slack</span><span class="w"> </span><span class="n">variables</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">constraint</span><span class="w"> </span><span class="n">MPC</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="n">lem</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">turned</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">soft</span><span class="w"> </span><span class="n">constraint</span><span class="w"> </span><span class="n">MPC</span><span class="w"> </span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">feasibility</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">vehicle</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">recovered</span><span class="w"> </span><span class="p">[</span><span class="mi">35</span><span class="p">]</span><span class="o">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">objective</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">incorporates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">incre</span><span class="w"> </span><span class="n">ment</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">variate</span><span class="w"> </span><span class="n">directly</span><span class="o">.</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">includes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">fol</span><span class="w"> </span><span class="n">lowing</span><span class="w"> </span><span class="n">constraints</span><span class="w"> </span><span class="n">related</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">increments</span><span class="o">.</span>
+</code></pre></div>
+
+<p>D D D </p>
+<p>In order to achieve good tracking performance, the  constraints in this paper are the most basic. In its imple mentation, the key is to look for the most suitable reference position in the prediction horizon.</p>
+<p>B. Trajectory Planner </p>
+<p>Drivers are accustomed to change lanes based on lane lines  rather than the shortest distance for saving time or energy  [37]. In addition, due to the diversity of the road alignment,  it is very troublesome to make the road discretization by  only adopting the inertial X-Y coordinate. Therefore, we  adopt S-L coordinate system to take road shapes into con-sideration [38].</p>
+<p>As shown in Fig. 1, we define a point ( , ), s l  where, s  represents the arc length along the center line, which is  also called station, and l represents the lateral offset of  the center line, which is also called latitude. Like the X-Y  coordinate system, we can define the following kinematic  vector c about arc length s and latitude .l  </p>
+<p>c = ) ) ) ) 6 @  </p>
+<p>(7) Where, ( ,s l ) is the heading angle, ( , k s l) is the curvature of the path.</p>
+<p>Note that the vector c is used to describe the state of  the sampling point. In highway scenarios, the vehicle  is assumed to be parallel to the center line so that the  vehicle’s heading angle and the curvature are the same  in term of the road shape. However, the purpose here is  to make the vehicle run at any speed. Thus, the initial  sampling state is depending on the vehicle’s initial state.  Likewise, the endpoint status depends on the desired ve-hicle state.</p>
+<p>The vehicle model defined in Equation (1) can be re formed as follows in terms of the S-L coordinate system.  </p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>为了获得车辆系统的控制输出，需要通过将采样的车辆状态与参考路径上行驶的参考车辆状态进行比较来进行反馈补偿。轨迹规划器规划参考车辆状态，可以定义为以下形式：</p>
+<p>x_ref = f(s_ref, l_ref)　　　　　　　　(2)</p>
+<p>计算采样车辆状态的误差通过环绕参考点的Taylor级数展开来进行，其中：</p>
+<p>x_error = x - f(s_ref, l_ref)　　　　　(3)</p>
+<p>其中T为采样周期，t为离散时间索引，k表示从t开始的步长。</p>
+<p>2）MPC控制器</p>
+<p>通常，MPC控制器通过优化具有约束条件的目标函数来选择系统的输出变量。通过最小化目标函数，MPC控制器的解可以使车辆安全快速地运动。最常见的目标函数被定义为状态和控制输入的二次函数形式，如下所示：</p>
+<p>J = ∫(x_error^T Q x_error + u^T R u) dt　　　　　　　(4)</p>
+<p>其中Q和R是加权矩阵。对于每个参数，加权矩阵中对应的系数可能不同。调整这些系数以获得最小误差或与路径平行的期望控制性能非常重要。在现实中，车速控制通过操纵油门和刹车以及转向盘来实现。它们都不适用于</p>
+<p>u(t) = [T, ΔT, δ]^T　　　　　　　(5)</p>
+<p>根据文献[35]，由Equation(4)修改后的目标函数应做出相应改变：</p>
+<p>J_modified = ∫(x_error^T Q x_error + u^T R u + f^T f) dt　　　　　　　(6)</p>
+<p>其中f是松弛变量。在这个目标函数中，第一项表示跟踪参考路径的能力，并反映了驾驶安全性。第二项强调控制输出的平滑性，反映了驾驶舒适性。最后一项没有现实的物理意义，但可以防止优化的无解[36]。在某些情况下，硬约束的MPC问题导致无法计算可行动作。通过使用松弛变量，硬约束的MPC问题变为软约束的MPC问题，然后可以恢复车辆系统的可行性[35]。修改后的目标函数直接包含了控制变量的增量。它还包含与控制输出及其增量相关的以下约束。</p>
+<p>G u ≤ h　　　　　　　(8)</p>
+<p>为了实现良好的跟踪性能，在本文中在预测时间段中寻找最合适的参考位置是关键。</p>
+<p>B. 轨迹规划器</p>
+<p>驾驶员习惯于根据车道线进行变道，而不是为了节省时间或能量而采用最短路程[37]。此外，由于道路行驶线的多样性，仅采用惯性X-Y坐标进行道路离散化非常麻烦。因此，我们采用S-L坐标系考虑到道路形状[38]。</p>
+<p>如图1所示，我们定义一个点( , )，其中s表示沿中心线的弧长，也称为站，l表示中心线的横向偏移，也称为纬度。与X-Y坐标系类似，我们可以定义下列关于弧长s和纬度l的运动学向量c：</p>
+<p>c = [s, l, ψ, k]　　　　　(7)</p>
+<p>其中( ,s l )为航向角，( , k s l)为路径的曲率。</p>
+<p>请注意，向量c用于描述采样点的状态。在高速公路场景中，假设车辆与中心线平行，因此车辆的航向角和曲率与道路形状相同。然而，这里的目的是使车辆以任意速度行驶。因此，初始采样状态取决于车辆的初始状态。同样，终点状态取决于期望的车辆状态。</p>
+<p>以S-L坐标系为基准，Equation(1)中定义的车辆模型可以表达为：</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>= = = </p>
+<p>(8) The Equations (8) shows that the vehicle position state  is determined by the curvature. Thus for the vehicle trajec tory planner curvature can be the only controlled variable.  In other words, the local trajectory can be carried out by determining the curvature.</p>
+<p>In [27], a curve was described by mixing cubic and  quartic polynomials. However, the quadratic polynomials  consume more computational resources, and need more  time to generate the result. Besides, high-order polynomial  curve makes the motion seem exaggerated at low speed sit uation. Dealing with the compromise and increase compu tational efficiency, here the curvature is defined as a cubic polynomial function of the arc length.</p>
+<p>] </p>
+<p>a b c d  can determine a path. In or der to reduce the magnitude error among the parameters  [27] and make it easier to adjust the parameters, we use a  parameter </p>
+<p>= </p>
+<p>to determine the path state of the system.</p>
+<p>Since the vehicle drives on the road, the local trajectory  planning should start from the current vehicle position, end ing to the previewed target point. Therefore, at each plan ning cycle, the vehicle’s current position is defined as the  initial sampling point. Then, the arc length of the vehicle’s  location should be defined as </p>
+<p>. s = 0 </p>
+<p>To create trajectory  planner in highway scenarios, it is assumed that the heading  angle </p>
+<p>i = 0 </p>
+<p>[28], [31]. However, autonomous vehicle drives  not only on highway scenes, but also on complex urban roads  with medium or low speeds. Therefore, the heading angle i cannot be assumed as .</p>
+<p>0  In each planning cycle, the vehicle  can obtain the vehicle’s current state through the positioning  system. Thus, Equation (8) (10) can be reformed as follows.</p>
+<p>( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) [ ( )] ( ) ( ) [ ( )] ( ) cos sin k s a b s c s d s s a s b s c s d s x s s ds x y s s ds y 2 3 4 0 0 0 p p p p p p p p</p>
+<p>0 = 0 0 0 </p>
+<p>0  is the ini tial sampling point state which can be obtained by the  vehicle’s positioning system. The endpoint of the trajec tory is </p>
+<p>= </p>
+<p>We find  the parameter p which can make the endpoint equals or  very close to the desired point </p>
+<p>k ( )  are similar, in order to simplify the com putation complexity, we set the endpoint status of the path </p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>（8）式显示了车辆位置状态由曲率决定。因此，对于车辆轨迹规划器来说，曲率可以是唯一的可控变量。换句话说，可以通过确定曲率来进行局部轨迹规划。</p>
+<p>在[27]中，一条曲线由混合的三次和四次多项式描述。然而，二次多项式消耗更多的计算资源，并且需要更长的时间来生成结果。此外，高阶多项式曲线在低速情况下的运动看起来过于夸张。为了处理这一妥协并增加计算效率，这里将曲率定义为弧长的三次多项式函数。</p>
+<p>a、b、c、d可以确定一条路径。为了减少参数之间的幅度误差[27]并使参数调整更容易，我们使用一个参数#来确定系统的路径状态。</p>
+<p>由于车辆行驶在道路上，局部轨迹规划应该从当前车辆位置开始，终止于预览的目标点。因此，在每个规划周期中，车辆的当前位置被定义为初始采样点。然后，车辆位置的弧长应该被定义为0。为了在高速公路场景中创建轨迹规划器，假设航向角i=0 [28]，[31]。然而，自动驾驶车辆不仅在高速公路场景下行驶，还在复杂的城市道路上以中低速行驶。因此，航向角i不能假设为0。</p>
+<p>在每个规划周期中，车辆可以通过定位系统获得车辆的当前状态。因此，式（8）（10）可以改写如下：</p>
+<p>（）（）（）（）（）（）（）（）（）（）（）（）【（）】（）（）【（）】（）cos sin k s a b s c s d s s a s b s c s d s x s s ds x y s s ds y 2 3 4 0 0 0 p p p p p p p p</p>
+<p>0是可以通过车辆定位系统获得的初始采样点状态。轨迹的终点是# 。</p>
+<p>我们找到使终点等于或很接近期望点的参数p。</p>
+<p>k（）非常相似，为了简化计算复杂度，我们设置路径的终点状态</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>p </p>
+<p>The gradient decent algorithm can achieve a wonderful  effect on the iterative solution problems. It is useful in rap idly minimizing the error between </p>
+<p>= ( ( )) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) d d d d d d d d d s p x s p x s p x s p y s p y s p y s p s p s p s J x</p>
+<p>= R T S S S S S S SS V X W W W W W W WW </p>
+<p>Before the start of each calculate cycle, an initial value  pinit needs be assumed, then calculating the error between  the desired state and the estimated state. After that, it can  generate a new estimated pi with the Jacobian by using Newton’s method.</p>
+<p>$ D D D D =  = = + In order to improve the efficiency, the iteration process  continues until reaching the maximum number of itera tion times or Equation (12) is smaller than a value that  shows the error is sufficiently small. Because of the dif ferent characteristics of each elements in the vector c, a  specific weight should be added to each element when cal-culating the error.</p>
+<p>=  +  +  +  </p>
+<p>(12) The local trajectory can be finally generated as the it eration ends. In addition, such trajectory will be input into  the tracking controller as a reference trajectory.</p>
+<p>III. Experiment </p>
+<p>In order to fully demonstrate the effectiveness of the meth od provided. Three different kinds of experiments were  carried out including fixed trajectory tracking, trajectory  generation and on-field test with an autonomous vehicle.</p>
+<p>A. Fix-Path Tracking </p>
+<p>The trace tracking simulation was studied via combining  MATLAB/Simulink with CarSim on a Windows 10 PC with Intel Core2 Duo CPU.</p>
+<p>Comparing with the results in [10], although the CPU  performance was worse, the average time per iteration was  only 0.040 s, which was less than that in [10]. Moreover,  the speed set is higher, but the lateral tracking error is  much less. In [10], the errors were out of the safety bounds </p>
+<p>. 0 3 error m  ^ </p>
+<p>h in up to eighteen percent of the time.  Here, using the same standard, the vehicle is safe in the  whole driving process. As shown in Fig. 3, the maximum  error is 0.18 m appearing in the course of changing lanes.  We do not study the average error, to protect the driver’s  safety, the maximum error should be in safety bounds. Specifically, in the trace tracking simulation, the double  lane change (DLC) maneuver was adopted [40], because  this maneuver could fully reflect the driving performance of the vehicle.</p><hr /><p>p </p>
+<p>The gradient decent algorithm can achieve a wonderful  effect on the iterative solution problems. It is useful in rap idly minimizing the error between </p>
+<p>= ( ( )) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) d d d d d d d d d s p x s p x s p x s p y s p y s p y s p s p s p s J x</p>
+<p>= R T S S S S S S SS V X W W W W W W WW </p>
+<p>Before the start of each calculate cycle, an initial value  pinit needs be assumed, then calculating the error between  the desired state and the estimated state. After that, it can  generate a new estimated pi with the Jacobian by using Newton’s method.</p>
+<p>$ D D D D =  = = + In order to improve the efficiency, the iteration process  continues until reaching the maximum number of itera tion times or Equation (12) is smaller than a value that  shows the error is sufficiently small. Because of the dif ferent characteristics of each elements in the vector c, a  specific weight should be added to each element when cal-culating the error.</p>
+<p>=  +  +  +  </p>
+<p>(12) The local trajectory can be finally generated as the it eration ends. In addition, such trajectory will be input into  the tracking controller as a reference trajectory.</p>
+<p>III. Experiment </p>
+<p>In order to fully demonstrate the effectiveness of the meth od provided. Three different kinds of experiments were  carried out including fixed trajectory tracking, trajectory  generation and on-field test with an autonomous vehicle.</p>
+<p>A. Fix-Path Tracking </p>
+<p>The trace tracking simulation was studied via combining  MATLAB/Simulink with CarSim on a Windows 10 PC with Intel Core2 Duo CPU.</p>
+<p>Comparing with the results in [10], although the CPU  performance was worse, the average time per iteration was  only 0.040 s, which was less than that in [10]. Moreover,  the speed set is higher, but the lateral tracking error is  much less. In [10], the errors were out of the safety bounds </p>
+<p>. 0 3 error m  ^ </p>
+<p>h in up to eighteen percent of the time.  Here, using the same standard, the vehicle is safe in the  whole driving process. As shown in Fig. 3, the maximum  error is 0.18 m appearing in the course of changing lanes.  We do not study the average error, to protect the driver’s  safety, the maximum error should be in safety bounds. Specifically, in the trace tracking simulation, the double  lane change (DLC) maneuver was adopted [40], because  this maneuver could fully reflect the driving performance of the vehicle.</p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>梯度下降算法在迭代求解问题时能够取得很好的效果。它对快速最小化目标状态与估计状态之间的误差非常有用。</p>
+<p>在每个计算周期开始之前，需要假设一个初始值pinit，然后计算期望状态与估计状态之间的误差。然后，使用牛顿法通过雅可比矩阵生成新的估计值pi。</p>
+<p>为了提高效率，迭代过程会继续进行，直到达到最大迭代次数或者式(12)的值小于一定阈值，表明误差已经足够小。由于向量c中的每个元素的特性不同，计算误差时需要为每个元素加上特定的权重。</p>
+<p>在迭代结束时，局部轨迹最终生成。此外，这样的轨迹将作为参考轨迹输入到跟踪控制器中。</p>
+<p>为了充分展示所提方法的有效性，进行了三种不同的实验，包括固定轨迹跟踪、轨迹生成以及与自动驾驶汽车的现场测试。</p>
+<p>A. 固定路径跟踪</p>
+<p>通过将MATLAB/Simulink与CarSim结合在一台Windows 10 PC上进行轨迹跟踪模拟实验，使用的CPU为Intel Core2 Duo。</p>
+<p>与文献[10]中的结果相比，虽然CPU性能较差，但每次迭代的平均时间仅为0.040秒，比[10]中的时间更短。此外，速度设置更高，但横向跟踪误差更小。在[10]中，误差在安全限制以外的情况下达到了18%的时间。在本文中，使用相同的标准，整个驾驶过程中车辆是安全的。如图3所示，最大误差为0.18米，在变道过程中出现。我们没有研究平均误差，为了保护驾驶员的安全，最大误差应该在安全限制范围内。具体来说，在轨迹跟踪模拟中，采用了双车道变道(DLC)动作[40]，因为这个动作能够充分反映车辆的驾驶性能。</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>To verify the influence of the trajectory on the control ler, different trajectories are used for tracking (Fig. 4).  These two reference paths are both based on the ISO 3888 1 DLC maneuver. The difference between the two paths is  that when changing lines, reference path 2 uses straight  lines and the other uses curves generated by the method proposed in Method B.</p>
+<p>As shown in Fig. 4, the maximum tracking error is 0.18  m with the reference path 1, and the other is 0.38 m. The  results demonstrated that the performance of the control ler made according to the method mentioned in the paper  satisfied the requirements, at the meantime, proved the  importance of trajectory planning. When changing lanes  or driving on the corners, the optimized trajectory makes  the tracking controller perform better to ensure the safety of the vehicle.</p>
+<p>There are many adjustable parameters in MPC control ler. Different combinations may result in different effects,  such as the weighting matrices </p>
+<p>. </p>
+<p>Q  Reference path 2 was  adopted to fully reflect the influence of the weight coef ficient of the heading angle. As shown in Fig. 5, while the  heading weight coefficient Qyaw is larger, the trace of the  vehicle is parallel to the reference path. Another situation  is that the vehicle gradually reduced the error with the  reference path. Adjusting the parameters in the controller  can reflect different drivers’ characteristic. In [8], the au thors used the evaluation index of steering smoothness and  path tracking accuracy reflects the drivers’ characteristic.  Therefore by changing the parameters of the cost function,  it is easy to modify the control performance to be the same as the human driver’s characteristic.</p>
+<p>The choice of speed can also reflect driving character istics. Based on the results of tracking different reference  paths, using the smooth one as the reference path shows  the influence of different vehicle velocity. As show in Fig.  6 the vehicle can follow the reference path very well at low  speeds. When the vehicle drives at high speed, the maxi mum error occurs during the lane change process. Using the model predictive control method, the predic tion model is a key part. As we introduce in the method, in  the implementation, the key is to look for the most suitable  reference position. The reference state is selected based on  the predicted state. If the prediction state is not accurate,  the reference state is not accurate too. Meanwhile under  high-speed condition, vehicle kinematic model cannot pre dict the vehicle future state accurately, especially in the  corners. Therefore, higher speed leads to higher error and returns to the reference path slower.</p>
+<p>B. Trajectory Generation </p>
+<p>In the field of trajectory planning, there are two common  assumptions, perfect perception and perfect tracker [29].  Based on the assumptions, during the driving, the vehicle  advanced one step, then planning once. Reference trajec-tory was updated every cycle.</p>
+<p>Two kinds of trajectory planning strategies are pro posed in this paper. One is the key point strategy, consid ering the real drivers’ driving behavior, after reaching a  key point such as the entrance or exit of the curves, then  considering the next key point. In the DLC maneuver, the  entrance and the exit of the traffic cones area are the key  points (A,B,C,D). Reference trajectory 1 is generated based  on this strategy. Until the vehicle reaches the nearest key  point ahead, the nearest key point ahead is always the de-sired end point in each planning cycle.</p>
+<p>For example, based on the assumption that the control ler is perfect, the vehicle perfectly tracks the reference  trajectory. After the vehicle travels for a certain distance,  the reference trajectory will be planned again. Since the  desired end point is the same, the trajectory planned is the  same as previous reference trajectory from the vehicle cur-rent position.</p>
+<p>The other one is the preview distance strategy. It takes a  desired point, which is fixed ahead of the vehicle as the end  point of each planning cycle. Reference trajectory 2 takes  the point on the global path that is 20 meters ahead of the  vehicle as the desired point of each planning cycle. Thus,  in each planning cycle, the desired end point is different.  Therefore, the trajectory planned cannot coincide with the previous reference trajectory.</p>
+<p>In each planning cycle, the difference in the desired  end-point selection has a great influence on the result. As </p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>为验证轨迹对控制器的影响，我们采用了不同轨迹进行跟踪（图4）。这两条参考路径都基于ISO 3888-1 DLC操纵。两条路径的区别在于，当变道时，参考路径2采用直线，而另一条路径采用由方法B提出的曲线生成的曲线。</p>
+<p>如图4所示，参考路径1的最大跟踪误差为0.18米，而参考路径2的最大跟踪误差为0.38米。结果表明，根据本文提出的方法制作的控制器的性能满足要求，并且证明了轨迹规划的重要性。当变道或在拐角行驶时，优化的轨迹使跟踪控制器表现更好，以确保车辆的安全。</p>
+<p>MPC控制器中有许多可调参数。不同的组合可能导致不同的效果，例如加权矩阵Q。我们采用参考路径2来充分反映航向角权重系数的影响。如图5所示，当航向角权重系数Qyaw较大时，车辆的轨迹与参考路径平行。另一种情况是车辆逐渐减小误差，逼近参考路径。通过调整控制器中的参数，可以反映出不同驾驶员的特征。在文献[8]中，作者使用转向平滑度和路径跟踪精度评估指标来反映驾驶员的特征。因此，通过改变代价函数的参数，可以轻松地将控制性能修改为与人类驾驶员的特征相同。</p>
+<p>速度的选择也可以反映驾驶特性。基于跟踪不同参考路径的结果，使用较平滑的路径作为参考路径可以展示不同车辆速度的影响。如图6所示，在低速下，车辆可以很好地跟随参考路径。当车辆以高速行驶时，车道变换过程中的最大误差会发生。使用模型预测控制方法，预测模型是关键部分。在方法中介绍时，关键是寻找最合适的参考位置。参考状态是基于预测状态选择的。如果预测状态不准确，参考状态也是不准确的。同时，在高速条件下，车辆运动学模型无法准确预测车辆的未来状态，特别是在拐角处。因此，更高的速度导致更大的误差，并且较慢地回到参考路径。</p>
+<p>在轨迹规划领域，存在两种常见的假设，即完美感知和完美跟踪[29]。基于这些假设，在驾驶过程中，车辆前进一步，然后进行一次规划。每个周期都会更新参考轨迹。</p>
+<p>本文提出了两种轨迹规划策略。一种是关键点策略，考虑到真实驾驶员的驾驶行为，在达到关键点（如曲线的进入或退出点）之后再考虑下一个关键点。在DLC操纵中，交通锥区域的进入和退出点是关键点（A、B、C、D）。参考轨迹1是基于这种策略生成的。直到车辆达到最近的前方关键点，最近的前方关键点始终是每个规划周期中的期望终点。</p>
+<p>例如，基于控制器完美的假设，车辆完美地跟踪参考轨迹。车辆行驶一定距离后，参考轨迹将再次规划。由于期望终点相同，所规划的轨迹与车辆当前位置的先前参考轨迹相同。</p>
+<p>另一种是预览距离策略。它以一个固定在车辆前方的期望点作为每个规划周期的终点。参考轨迹2以全局路径上距离车辆前方20米的点作为每个规划周期的期望点。因此，在每个规划周期中，期望终点是不同的。因此，规划的轨迹与先前的参考轨迹不相符。</p>
+<p>在每个规划周期中，期望终点选择的差异对结果产生重大影响。</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>Table I. Maximum error at different speed. shown in Fig. 8, preview points are selected on the same  global path, the trajectories generated are different be cause of the different preview distances. The preview dis tance and the lateral offset of the global path are the main  influence factors to generate different trajectories. If the  preview distance is longer, then the turn is earlier when  passing the corner. The choice of the preview distance is  also selected according to the driver’s behavior and road  conditions. Thus, according to the method, we can produce  path-planning solutions that reflect different drivers’ be havior, which will be studied in future publications.</p>
+<p>C. On-Filed Test </p>
+<p>The on-field test was carried out with a car BYD Qin pro vided by Wuhan Kotei Technnology Corporation. The ve hicle is equipped with two IPC with i7 CPU. The model of  the industrial computer is ARK-3500. The software are  running in Windows 7 environment. The perceptual layer  adopted multi-radar fusion system in the vehicle. On-field  test includes fixed-path tracking and obstacle avoidance. The experiment process was divided into several steps.  First, a real driver drove the car around the test site for  several circles to collect GPS data to get the global refer ence path. The fixed-path tracking experiment was car ried out based on these data. Therefore, the fixed-path  tracking experiment did not necessarily need the trajec-tory planner.</p>
+<p>Due to site some restrictions, the maximum vehicle  travel speed was set as 15 km/h. Like the simulation result,  the maximum trajectory tracking occurred at the curves.  This was because of the defects of using the vehicle kine matic model. In order to cross the sharp curves, the speed  was set very low when entering the curves. The surround ings could influence the multi-radar fusion system and ul timately affected the experiment result. As shown in Fig.  10, the unmanned ground vehicle can finish fixed-path  tracking successfully. As shown in simulation, the maxi mum error occurred in the corner, which is still in an ac-ceptable range.</p>
+<p>In the trajectory planning simulation, the tracker  was able to track the trajectory accurately. However, it  would not happen in real vehicle experiment, because  the tracking process might generate errors. Therefore, it  is necessary to continuously plan new trajectory based on  the current vehicle position during the moving to modify  the errors between the desired position and the current position.</p>
+<p>To reflect the importance of the trajectory planner,  obstacle-avoiding experiment was carried out. The traf fic cones were placed on both sides of the centerline. They  were separated by 8 meters in the longitudinal direction. As shown in Fig. 12, the vehicle drove through the cones  area successfully with a S-shaped trajectory. The route was not  smooth due to the acquisition accuracy and sampling time.</p>
+<p>IV. Conclusion </p>
+<p>This paper proposed a joint framework for trajectory plan ning and tracking control. The planner and the tracker  were proved through the simulation and the on-field test.  The trajectory tracking control based on model predic tive control could ensure that the maximum error of ve hicle tracking is less than 0.2 m when the speed is below  50 km/h. At the meantime, it proved the importance of  smooth trajectory in autonomous vehicle movement. Be sides, we compared the impact of different parameters  both in tracking controller and trajectory planner. This  paper also proposed two strategies on local planning strat egies, i.e., the key point strategy and the preview distance  ahead strategy. Finally, the two algorithms were combined  and experimentally proved by the on-field test. The MPC controller based on the vehicle kinematic  model can show good performance at low speed, but on  highway roads, vehicle kinematic model cannot predict  the vehicle future state accurately, especially in the cor ners. As shown in the simulation results, when the vehicle  is driving at a speed higher than 50 km/h, the lateral error  has exceeded 0.2 m. So that in the future, the vehicle kine matic model needs to be improved with vehicle dynamic  model to test high speed scenarios. In our controller, we set  slack variables in the objective function to prevent null so lution problem. However, it cannot guarantee that the soft constrained MPC solution is equal to the hard-constrained  MPC solution. In order to solve this problem, the weighting  of the slack variable need to be expressed by an exact pen-alty function.</p>
+<p>Acknowledgment </p>
+<p>This work is supported by the National Key R&amp;D Pro gram of China (2018YFB0105004), the National Natural  Science Foundation of China (51675390, U1764262), the  Major Project of Technological Innovation in Hubei Prov ince (2016AAA007), and the Science Fund of State Key  Laboratory of Automotive Safety and Energy (KF1807).  The authors would like to thank Wuhan Kotei Technol ogy Corporation for providing the autonomous vehicle testbed.</p>
+<p>About the Authors </p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>表格I. 不同速度下的最大误差，如图8所示，预览点是在同一全局路径上选择的，由于预览距离不同，生成的轨迹也不同。预览距离和全局路径的横向偏移是生成不同轨迹的主要影响因素。如果预览距离更长，那么在通过转弯时转向会更早。预览距离的选择也是根据驾驶员的行为和道路条件来确定的。因此，根据这种方法，我们可以提供反映不同驾驶员行为的路径规划解决方案，这将在未来的出版物中进行研究。</p>
+<p>C. 现场测试</p>
+<p>现场测试是通过武汉科中科技有限公司提供的比亚迪秦Pro汽车进行的。该车配备了两台带有i7处理器的IPC。工业计算机型号为ARK-3500。软件在Windows 7环境中运行。感知层采用了车辆内的多雷达融合系统。现场测试包括固定路径跟踪和避障。实验过程分为几个步骤。首先，真实的驾驶员在测试场地周围开车几圈，以收集GPS数据获取全局参考路径。基于这些数据进行固定路径跟踪实验。因此，固定路径跟踪实验不一定需要轨迹规划器。</p>
+<p>由于现场的一些限制，车辆的最高行驶速度设置为15公里/小时。与仿真结果一样，轨迹跟踪的最大偏差发生在曲线上。这是由于使用车辆运动学模型的缺陷导致的。为了通过急转弯，进入转弯时速度设置得非常低。周围环境可能会影响多雷达融合系统，从而最终影响实验结果。如图10所示，无人地面车辆可以成功完成固定路径跟踪。如仿真中所示，最大偏差出现在转弯处，但仍在可接受范围内。</p>
+<p>在轨迹规划仿真中，追踪器能够准确跟踪轨迹。然而，在实际车辆实验中可能不会发生这种情况，因为跟踪过程可能会产生误差。因此，在移动过程中基于当前车辆位置持续规划新的轨迹，以修正期望位置与当前位置之间的误差是必要的。</p>
+<p>为了反映轨迹规划器的重要性，进行了避障实验。交通锥以两侧中心线为基准放置，纵向方向上相隔8米。如图12所示，车辆成功地通过了锥区，呈“S”形轨迹。由于获取的准确性和采样时间，路线不太平滑。</p>
+<p>IV. 结论</p>
+<p>本文提出了一种轨迹规划和跟踪控制的联合框架。通过仿真和现场测试验证了规划器和追踪器的有效性。基于模型预测控制的轨迹跟踪控制可确保车辆在速度低于50公里/小时时的最大跟踪误差小于0.2米。同时，本文证明了平滑轨迹在自动驾驶车辆运动中的重要性。此外，我们比较了跟踪控制器和轨迹规划器中不同参数的影响。本文还提出了两种局部规划策略，即关键点策略和前瞻距离策略。最后，这两种算法通过现场测试得到实验证明。基于车辆运动学模型的MPC控制器在低速下表现良好，但在高速公路上，车辆运动学模型无法准确预测车辆的未来状态，尤其是在转弯处。如仿真结果所示，当车辆以高于50公里/小时的速度行驶时，横向误差已超过0.2米。因此，在将来，需要改进车辆运动学模型以测试高速场景。在我们的控制器中，我们在目标函数中设置了松弛变量以防止无解问题。然而，这不能保证软约束的MPC解等于硬约束的MPC解。为了解决这个问题，松弛变量的加权需要用精确的惩罚函数来表示。</p>
+<p>致谢</p>
+<p>本工作得到了中华人民共和国国家重点研发计划（2018YFB0105004），国家自然科学基金（51675390，U1764262），湖北省技术创新重大项目（2016AAA007）和国家汽车安全及能源工程实验室科学基金（KF1807）的支持。感谢武汉科中科技有限公司提供自主车辆测试平台。</p>
+<p>作者简介</p></div></div>
+</div>
+        
+<div class="row table-row">
+    <div class="column table-cell"><div class="markdown-body"><p>Chaoyong Zhang received B.E. de gree in mechanical engineering from  Huazhong University of Science and  Technology, Wuhan, China in 2014. He  is currently working hard toward the  M.E. degree with Intelligent Transpor tation Systems Research Center, Wu han University of Technology, Wuhan, China. His research  interests include automated control, path planning, intel-ligent transportation system, etc.</p>
+<p>Duanfeng Chu received the B.E. de gree and the Ph.D. degree, both in me chanical engineering from Wuhan  University of Technology, Wuhan, Chi na, in 2005 and 2010, respectively. He is currently an Associate Pro fessor of Intelligent Transportation  Systems Research Center, Wuhan University of Technolo gy, Wuhan, China, focusing on the research of automated  and connected vehicle, intelligent transportation sys tems, etc. He has visited University of California, Berke ley, USA, and the Ohio State University, USA, in 2009 and 2017, respectively.</p>
+<p>Dr. Chu has been a reviewer for several international  journals and conferences in the field of automated vehicle. Shidong Liu received B.E. in vehicle  engineering from Wuhan University of  Technology, Wuhan, China in 2015. He  is currently working hard toward the  M.E. degree with Intelligent Transpor tation Systems Research Center, Wu han University of Technology, Wuhan.  His research interests include automated control, path  planning, intelligent transportation system, etc. Zejian Deng received the B.S. degree  in automation and M.S. degree in  transportation engineering, both from  Wuhan University of Technology, Wu han, China, in 2015 and 2018, respec tively. He is currently working towards  the Ph.D. degree in mechanical and  mechatronics engineering with University of Waterloo,  Waterloo, Canada. His research interests include driver  model and decision-making in automated driving. Chaozhong Wu received the B.E. degree  in marine engineering, the M.S. degree  in management science and engineer ing, and the Ph.D. degree in transporta tion engineering, all from Wuhan  University of Technology, Wuhan, China  in 1996, 1999 and 2002, respectively. He is currently a Professor and the Director of Intelli gent Transportation Systems Research Center, Wuhan Uni versity of Technology, Wuhan, China. He is an expert in  traffic safety, connected vehicle and intelligent transporta tion systems, etc. He has published over 60 journal articles  and holds 11 patents. He was a visiting scholar of University  of Regina, Canada, and Northeastern University, USA, in 2006 and 2015, respectively.</p>
+<p>Dr. Wu was a recipient of the New Century Excellent  Talent of Ministry of Education of China in 2010, the Young  Talent of Ministry of Transport of China in 2012, the Dis tinguished Young Scholar of Hubei Province of China in  2012, and the Young Leading Talent of Ministry of Trans port of China in 2014. He serves as an Associate Editor for some journals.</p>
+<p>Xiaocong Su obtained his master of Elec tronics and Communication Engineering  at the Huazhong University of Science  and Technology in China in 2011. He is currently working as a senior  software engineer at Wuhan Kotei  Technology Corporation. In 2013 he  joined the team charged with the development of autono mous vehicle at Wuhan Kotei Technology Corporation in Wuhan.</p>
+<p>References   Index Terms Trajectory planning and tracking;  state lattice; model predictive control; autono mous vehicle</p></div></div>
+    <div class="column table-cell"><div class="markdown-body"><p>张超勇于2014年在中国武汉的华中科技大学获得机械工程学士学位。他目前在武汉理工大学智能交通系统研究中心努力攻读硕士学位，研究方向包括自动控制、路径规划、智能交通系统等。</p>
+<p>储端锋于2005年和2010年分别在中国武汉的武汉理工大学获得机械工程学士和博士学位。他目前是武汉理工大学智能交通系统研究中心的副教授，致力于自动化与互联车辆、智能交通系统等方向的研究。他曾于2009年和2017年分别访问美国加州大学伯克利分校和俄亥俄州立大学。</p>
+<p>褚男栋博士曾担任多个国际期刊和会议的审稿人，研究领域为自动驾驶车辆。刘仕东于2015年在中国武汉的武汉理工大学获得车辆工程学士学位，目前在武汉理工大学智能交通系统研究中心努力攻读硕士学位，研究方向包括自动控制、路径规划、智能交通系统等。</p>
+<p>邓泽健于2015年和2018年分别在中国武汉的武汉理工大学获得自动化学士学位和交通工程硕士学位。他目前在加拿大滑铁卢大学攻读机械与机电工程博士学位，研究领域包括自动驾驶中的驾驶员模型和决策制定。</p>
+<p>吴朝中于1996年、1999年和2002年分别在中国武汉的武汉理工大学获得海洋工程学士学位、管理科学与工程硕士学位和交通工程博士学位。他目前是武汉理工大学智能交通系统研究中心的教授和主任，擅长交通安全、互联车辆和智能交通系统等领域。他已发表60多篇期刊文章，并持有11项专利。他曾于2006年和2015年分别作为访问学者访问加拿大里贾纳大学和美国东北大学。</p>
+<p>吴博士曾获得中国教育部2010年的新世纪优秀人才奖、中国交通部2012年的青年人才奖、湖北省2012年的青年杰出学者奖和中国交通部2014年的青年科技领军人才资助。他还担任一些期刊的副主编。</p>
+<p>苏晓聪于2011年在中国的华中科技大学获得电子与通信工程硕士学位。他目前在武汉科特技术公司担任高级软件工程师，2013年加入了公司的自动驾驶车辆开发团队。</p>
+<p>参考文献：路径规划和跟踪；状态栅格；模型预测控制；自动驾驶车辆。</p></div></div>
+</div>
+        
